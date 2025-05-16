@@ -12,6 +12,35 @@
 	font-weight: 200 900;
 }
 
+/* view transitions https://css-tricks.com/almanac/rules/v/view-transition/ */
+@media screen and (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+}
+
+::view-transition-old(root) {
+	animation: fadeOut 0.4s both;
+}
+
+::view-transition-new(root) {
+	animation: fadeIn 0.4s both;
+}
+
+::view-transition-group(root) {
+	animation-duration: 0.4s;
+}
+
+@keyframes fadeOut {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
 html {
 	font-size: 100%;
 	font-family: "JW", system-ui, Helvetica, Arial, sans-serif;
