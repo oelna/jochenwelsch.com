@@ -105,7 +105,7 @@ section li a::before {
 	display: inline-block;
 	width: 1em;
 	height: 1em;
-	background: transparent url(/images/icon_arrow_right_fill.svg) 0 0 no-repeat;
+	background: transparent url(./images/icon_arrow_right_fill.svg) 0 0 no-repeat;
 	background-size: contain;
 	margin-right: 0.25em;
 	vertical-align: text-top;
@@ -113,7 +113,7 @@ section li a::before {
 }
 
 section li a:hover::before {
-	background-image: url(/images/icon_arrow_right.svg);
+	background-image: url(./images/icon_arrow_right.svg);
 	/* margin-left: 0.4em; */
 }
 
