@@ -1,17 +1,23 @@
 :root {
-  --main-color: #000;
+	--main-color: #000;
 }
 
 * {
 	box-sizing: border-box;
 }
 
+@font-face {
+	font-family: 'JW';
+	src: url('./fonts/SourceSans3VF-Roman.woff2') format('woff2-variations');
+	font-weight: 200 900;
+}
+
 html {
 	font-size: 100%;
-	font-family: "Ringside Narrow SSm A", "Ringside Narrow SSm B", Helvetica, Arial, sans-serif;
+	font-family: "JW", system-ui, Helvetica, Arial, sans-serif;
 	/* font-family: "Ringside Regular SSm A", "Ringside Regular SSm B", Helvetica, Arial, sans-serif; */
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 550;
 	line-height: 1.4;
 }
 
@@ -95,9 +101,20 @@ section li:last-child {
 	border-bottom-width: 1px;
 }
 
+section .rights li {
+	display: flex;
+	gap: 1ch;
+}
+
 section li a {
 	text-decoration: none;
 	color: currentColor;
+	display: flex;
+	align-items: center;
+}
+
+section .rights li a::after {
+	content: ":";
 }
 
 section li a::before {
@@ -119,6 +136,8 @@ section li a:hover::before {
 
 section.education p {
 	font-size: 1.35em;
+	line-height: 1.25;
+	hyphens: auto;
 }
 
 footer nav.meta ul {

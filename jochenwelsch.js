@@ -1,3 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(e) {
-	console.log('ready');
-});
+
+if (document.querySelector('html').classList.contains('error')) {
+	console.log(window.location);
+}
