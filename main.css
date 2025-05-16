@@ -55,7 +55,10 @@ h2 {
 }
 
 main {
-
+	/* responsive grid */
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(26em, 1fr));
+	grid-gap: 1rem;
 }
 
 main > section {
@@ -174,6 +177,8 @@ footer nav.meta li a {
 		margin: 0 0 4rem 0;
 	}
 
+	/* flex to grid update 2025: */
+	/*
 	main {
 		display: flex;
 		flex-direction: row;
@@ -189,7 +194,7 @@ footer nav.meta li a {
 		flex-basis: 50ch;
 
 		margin: 0 0.5rem;
-		/* width: CALC(100% / 3); */
 		width: CALC(50ch - 1rem);
 	}
+	*/
 }

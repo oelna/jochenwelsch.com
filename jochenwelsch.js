@@ -1,4 +1,5 @@
 
+// try to fix the old pretty URLs, redirect to new static pages
 if (document.querySelector('html').classList.contains('error')) {
 	const loc = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
 
