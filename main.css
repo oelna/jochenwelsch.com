@@ -1,9 +1,56 @@
-:root {
-	--main-color: #000;
+/* reset, modified from https://www.joshwcomeau.com/css/custom-css-reset/ and https://jakelazaroff.com/words/my-modern-css-reset/*/
+@layer reset {
+	*, *::before, *::after {
+		box-sizing: border-box;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			interpolate-size: allow-keywords;
+		}
+	}
+
+	body {
+		line-height: inherit;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	img, picture, video, canvas, svg {
+		display: block;
+		max-inline-size: 100%;
+	}
+
+	input, button, textarea, select {
+		font: inherit;
+		letter-spacing: inherit;
+		word-spacing: inherit;
+		color: currentColor;
+	}
+
+	p, h1, h2, h3, h4, h5, h6 {
+		overflow-wrap: break-word;
+	}
+
+	ol, ul {
+		list-style: none;
+	}
+
+	p {
+		text-wrap: pretty;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		text-wrap: balance;
+	}
 }
 
-* {
-	box-sizing: border-box;
+:root {
+	--main-color: #000;
 }
 
 @font-face {
@@ -55,21 +102,23 @@ a {
 }
 
 img {
-	display: block;
-	max-width: 100%;
 	height: auto;
 }
 
 body {
 	margin: 0;
-	border-top: 0.5rem solid black;
+	border-block-start: 0.5rem solid black;
 	padding: 0.5rem;
 }
 
 h1 {
 	font-size: 2.4em;
-	margin-top: 0;
-	margin-bottom: 0.25rem;
+	margin-block-start: 0;
+	margin-block-end: 0.25rem;
+}
+
+h1 a:hover {
+	opacity: 0.7;
 }
 
 h1 a,
@@ -80,18 +129,18 @@ h2 a {
 
 h2 {
 	font-size: 1.6em;
-	margin: 0 0 4rem 0;
+	margin-block-end: 4rem;
 }
 
 main {
 	/* responsive grid */
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(26em, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(min(26em, 100%), 1fr));
 	grid-gap: 1rem;
 }
 
 main > section {
-	border-top: 0.2em solid var(--main-color);
+	border-block-start: 0.2em solid var(--main-color);
 	padding: 0.5em 0 1em;
 }
 
@@ -106,13 +155,15 @@ section.nnr-intro h3 {
 }
 
 section p {
-	margin: 0 0 1em 0;
-	max-width: 50ch;
+	margin-block-end: 1em;
+	margin-block-end: 0.5lh;
+	/* max-inline-size: 50ch; */
 }
 
 section img {
 	width: 100%;
-	margin-bottom: 0.5em;
+	height: auto;
+	margin-block-end: 0.5em;
 }
 
 section ul {
@@ -123,14 +174,14 @@ section ul {
 
 section li {
 	border: 1px solid var(--main-color);
-	border-left-width: 0;
-	border-right-width: 0;
-	border-bottom-width: 0;
+	border-inline: 0;
+	border-block-end-width: 0px;
+	border-block-start: 1px solid var(--main-color);
 	padding: 0.25em 0;
 }
 
 section li:last-child {
-	border-bottom-width: 1px;
+	border-block-end-width: 1px;
 }
 
 section .rights li {
@@ -156,14 +207,14 @@ section li a::before {
 	height: 1em;
 	background: transparent url(./images/icon_arrow_right_fill.svg) 0 0 no-repeat;
 	background-size: contain;
-	margin-right: 0.25em;
+	margin-inline-end: 0.25em;
 	vertical-align: text-top;
 	transition: all 0.15s ease;
 }
 
 section li a:hover::before {
 	background-image: url(./images/icon_arrow_right.svg);
-	/* margin-left: 0.4em; */
+	/* margin-inline-start: 0.4em; */
 }
 
 section.education p {
@@ -179,7 +230,7 @@ footer nav.meta ul {
 
 footer nav.meta li {
 	display: inline-block;
-	margin-right: 0.25em;
+	margin-inline-end: 0.25em;
 }
 
 footer nav.meta li a {
@@ -197,8 +248,8 @@ footer nav.meta li a {
 
 	h1 {
 		font-size: 3em;
-		margin-top: 1rem;
-		margin-bottom: 0.25rem;
+		margin-block-start: 1rem;
+		margin-block-end: 0.25rem;
 	}
 
 	h2 {
